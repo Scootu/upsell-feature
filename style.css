@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700&display=swap');
+
+:root {
+    --main-clr: #393956;
+    --main-service-con: #191931;
+    --main-text-clr: #A9A9D0;
+    --border-btn-clr: #69424D;
+    --font-family: 'Rubik', sans-serif;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 60%;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--main-clr);
+    font-family: var(--font-family);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.feature-upsell {
+
+    background-color: var(--main-service-con);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hed-feature {
+    padding: 2rem;
+    color: var(--main-text-clr);
+    font-size: 16px;
+}
+
+.carts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cart {
+    border: 2px solid #131227;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 4rem 4rem 4rem;
+    color: var(--main-text-clr);
+    gap: 20px;
+    width: 260px;
+}
+
+.content p {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.price {
+    text-align: center;
+}
+
+.price p {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.price span {
+    color: #292946;
+    font-size: 14px;
+}
+
+.features-list {
+    font-size: 12px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.price-btn {
+    padding: 1rem 2rem;
+    border: 2px solid var(--border-btn-clr);
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--main-text-clr);
+    border-radius: 20px;
+    font-weight: 500;
+}
