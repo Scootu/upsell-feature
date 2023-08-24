@@ -1,4 +1,4 @@
-let CARTFEATURE = [
+let cartFeature = [
   {
     id: "e1",
     title: "Email Distribution",
@@ -11,8 +11,6 @@ let CARTFEATURE = [
     price: "$5",
     features: ["Detailed analytics and stats of your lists"],
   },
-];
-let CartSlices = [
   {
     id: "ed1",
     title: "Email Distribution analysic",
@@ -36,8 +34,7 @@ let CartSlices = [
 ];
 
 const cartContainerSLice = document.querySelector(".cart-container-slide");
-const cartContainerItems = document.querySelector(".cart-container-items");
-
+const cartContainerSmall = document.querySelector(".cart-container-small");
 // function renderCartSlice() {
 //   CARTFEATURE.forEach((item) => {
 //     let divContainer = document.createElement("div");
@@ -75,10 +72,18 @@ const cartContainerItems = document.querySelector(".cart-container-items");
 //   });
 // }
 function renderCartSlice() {
-  let tagElement = "";
-  console.log(CARTFEATURE);
-  CARTFEATURE.forEach((item) => {
-    let tag = `<div class="cart">
+  let tagElementSlice = "";
+  let tagELmenetSmall = "";
+  cartFeature.forEach((item) => {
+    let feautreLi = "";
+
+    !item.features
+      ? ""
+      : item.features.forEach((item) => {
+          feautreLi += `<li>${item}</li>`;
+        });
+    const cartItem = item.features ? "cartItem" : "cartSmall";
+    let tag = `<div class="cart touched ${cartItem}">
                     <div class="content">
                         <p>${item.title}</p>
                         <div class="price">
@@ -87,16 +92,21 @@ function renderCartSlice() {
                         </div>
                     </div>
                     <ul class="features-list">
-                        ${item.features.map((item) => {
-                          return <li>${item}</li>;
-                        })}
+                       ${feautreLi}
                     </ul>
                     <button class="price-btn">Add to Cart</button>
                 </div>
             </div>`;
-    console.log(item);        
-    tagElement += tag;
+    if (!item.features) {
+      tagELmenetSmall += tag;
+    } else {
+      tagElementSlice += tag;
+    }
   });
-  cartContainerSLice.appendChild(tagElement);
+  cartContainerSLice.innerHTML = tagElementSlice;
+  cartContainerSmall.innerHTML = tagELmenetSmall;
+}
+function changeUiCart() {
+  const cartElement = document.querySelectorAll("cart");
 }
 renderCartSlice();

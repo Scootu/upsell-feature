@@ -5,6 +5,7 @@
     --main-service-con: #191931;
     --main-text-clr: #A9A9D0;
     --border-btn-clr: #69424D;
+    --border-btnc-clr: #69425f;
     --font-family: 'Rubik', sans-serif;
 
 }
@@ -48,6 +49,7 @@ body {
     padding: 2rem;
     color: var(--main-text-clr);
     font-size: 16px;
+    text-align: center;
 }
 
 .carts-container {
@@ -55,14 +57,57 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
+.cart-container-slide {
+    display: flex;
+}
+
+.cart-container-small {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .cart {
     border: 2px solid #131227;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     padding: 1rem 4rem 4rem 4rem;
-    color: var(--main-text-clr);
     gap: 20px;
     width: 260px;
+}
+
+.cartItem {
+    flex-direction: column;
+}
+
+.cartSmall {
+    width: 100%;
+    padding: 1rem;
+}
+
+.cartSmall .content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cartSmall .content>p {
+    margin: 0;
+    width: 180px;
+}
+
+.cartSmall .content .price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.touched {
+    color: var(--main-text-clr);
+}
+
+.touched:hover {
+    color: #ffffff;
 }
 
 .content p {
@@ -82,8 +127,12 @@ body {
 }
 
 .price span {
-    color: #292946;
+
     font-size: 14px;
+}
+
+.touched .price span {
+    color: #292946;
 }
 
 .features-list {
@@ -96,10 +145,60 @@ body {
 
 .price-btn {
     padding: 1rem 2rem;
-    border: 2px solid var(--border-btn-clr);
+
     cursor: pointer;
-    background-color: transparent;
-    color: var(--main-text-clr);
+
+
     border-radius: 20px;
     font-weight: 500;
+}
+
+.touched .price-btn {
+    background-color: transparent;
+    color: var(--main-text-clr);
+    border: 2px solid var(--border-btn-clr);
+}
+
+.touched:hover .price-btn {
+    background-color: var(--border-btnc-clr);
+    color: #ffffff;
+}
+
+@media (max-width:68.44em) {
+    .carts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-container-slide {
+        flex-direction: column;
+    }
+
+    .cartItem {
+        width: 100%;
+        padding: 1rem;
+        flex-direction: row;
+    }
+
+    .cartItem .content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cartItem .content>p {
+        margin: 0;
+        width: 180px;
+    }
+
+    .cartItem .content .price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .features-list {
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+    }
 }
